@@ -12,11 +12,7 @@ describe('GET /', function () {
       .get('/events')
       //respond with a OK and the specified JSON response
       .reply(200, {
-        "status": 200,
-        "events": [
-          { "title": 'an event', "id": 1234, "description": 'something really cool' },
-          { "title": 'another event', id: 5678, "description": 'something even cooler' }
-        ]
+        "status": 200
       });
 
     request(app)
@@ -27,7 +23,7 @@ describe('GET /', function () {
         if (err) {
           return done(err);
         }
-        chai.assert.isTrue(res.text.includes("<h1>Welcome to [TEAM NAME'S] application</h1>"));
+        chai.assert.isTrue(res.text.includes("Welcome"));
         return done();
       });
 
